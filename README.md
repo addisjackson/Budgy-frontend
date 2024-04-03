@@ -24,12 +24,15 @@
     <br />
     <a href="https://github.com/addisjackson/Budgy-frontend"><strong>Explore the docs »</strong></a>
     <br />
+   [<strong>Trello Board</strong>](https://trello.com/b/OIdxrpoU/budgy-my-expense-tracker-app) :trello:
     <br />
     <a href="https://github.com/addisjackson/Budgy_frontend">View Demo</a>
     ·
     <a href="https://github.com/addisjackson/Budgy_frontend/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
     <a href="https://github.com/addisjackson/Budgy_frontend/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+
+    .
   </p>
 </div>
 
