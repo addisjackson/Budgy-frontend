@@ -1,38 +1,147 @@
-.App {
+.edit-expense-form-container {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  padding: 20px; /* Add padding */
+  border: solid 5px black; /* Add border */
+  background-color: rgba(246, 12, 230, 0.8); /* Set background color */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+/* No need for background color here */
+
+
+.edit-expense-form h2 {
+  margin-top: 20px;
+  font-size: 24px; /* Larger font size for the title */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.edit-expense-form form {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.input-group {
+  margin-bottom: 50px; /* Increased margin between input groups */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.label {
+  display: inline-block;
+  width: 100px;
+  text-align: right;
+  margin-right: 20px;
+  font-size: 18px; /* Larger font size for labels */
 }
+
+.input {
+  width: calc(100% - 120px);
+  padding: 15px; /* Increased padding for inputs */
+  box-sizing: border-box;
+  margin-bottom: 20px; /* Increased margin between inputs */
+  font-size: 18px; /* Larger font size for inputs */
+}
+
+.buttons {
+  margin-top: 30px; /* Increased margin between inputs and buttons */
+  display: flex;
+}
+
+.buttons button {
+  margin-right: 30px; /* Increased margin between buttons */
+  padding: 15px 20px; /* Increased padding for buttons */
+  font-size: 18px; /* Larger font size for buttons */
+  border-radius: 5px;
+  background-color: red;
+    color: white;;
+}
+
+.buttons button:last-child {
+  margin-right: 0;
+}
+
+
+
+  .highlight {
+    background-color: yellow; /* Set the background color to highlight the matched terms */
+  }
+  
+  .canvas-container {
+    max-width: 400px; /* Adjust the width as needed */
+  }
+
+  .edit-budget-form {
+    max-width: 600px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .edit-budget-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    width: 30%; /* Adjust the width of labels as needed */
+  }
+  
+  input[type="number"],
+  select {
+    width: 30%; /* Adjust the width of inputs as needed */
+  }
+  
+  .expenses-container {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .expense-heading {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .expense-row-heading th {
+    background-color: #f0f0f0;
+  }
+  
+  .expense-row {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .expense-row td {
+    padding: 10px;
+  }
+  
+  .expense-save,
+  .expense-cancel {
+    display: inline-block;
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px; /* Adjust the gap between buttons as needed */
+  }
+  
+  .expense-save:hover,
+  .expense-cancel:hover {
+    opacity: 0.8;
+  }
+  

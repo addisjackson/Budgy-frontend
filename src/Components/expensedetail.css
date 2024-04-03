@@ -1,0 +1,48 @@
+.expense-detail {
+  width: 80%; /* Set the width of the container */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 20px; /* Add padding for better appearance */
+  border-radius: 10px; /* Add border radius for rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Arrange items vertically */
+  justify-content: center; /* Center items vertically */
+  align-items: center; /* Center items horizontally */
+  background-color: rgba(246, 12, 230, 0.8); /* Background color for even rows */
+}
+
+.expense-header {
+  text-align: center; /* Center the header text */
+  margin-bottom: 20px; /* Add some space below the header */
+}
+
+.expense-detail p {
+  margin-bottom: 10px;
+  text-align: center; /* Center the text */
+}
+
+.buttons {
+  display: grid; /* Use grid layout */
+  align-items: center; /* Center items both horizontally and vertically */
+  margin-top: 20px; /* Add margin above buttons */
+  grid-gap: 100px; /* Add gap between buttons */
+}
+
+.edit-button,
+.return-button {
+  display: inline-block; /* Display buttons inline */
+  padding: 10px 20px; /* Add padding for button size */
+  border-radius: 5px; /* Add border radius for rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+.edit-button {
+  background-color: #3498db; /* Blue color for edit button */
+  color: white; /* White text color */
+}
+
+.return-button {
+  background-color: #e74c3c; /* Red color for return button */
+  color: white; /* White text color */
+}

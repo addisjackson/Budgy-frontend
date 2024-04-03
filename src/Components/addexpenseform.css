@@ -1,0 +1,66 @@
+.add-expense-form-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    padding: 20px; /* Add padding */
+    border: solid 5px black; /* Add border */
+    background-color: rgba(246, 12, 230, 0.8); /* Set background color */
+  }
+  
+  
+  /* No need for background color here */
+  
+  
+  .add-expense-form h2 {
+    margin-top: 20px;
+    font-size: 24px; /* Larger font size for the title */
+  }
+  
+  .add-expense-form form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .expense-input-group {
+    margin-bottom: 50px; /* Increased margin between input groups */
+  }
+  
+  .label {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    margin-right: 20px;
+    font-size: 18px; /* Larger font size for labels */
+  }
+  
+  .input {
+    width: calc(100% - 120px);
+    padding: 15px; /* Increased padding for inputs */
+    box-sizing: border-box;
+    margin-bottom: 20px; /* Increased margin between inputs */
+    font-size: 18px; /* Larger font size for inputs */
+  }
+  
+  .buttons {
+    margin-top: 30px; /* Increased margin between inputs and buttons */
+    display: flex;
+  }
+  
+  .buttons button {
+    margin-right: 30px; /* Increased margin between buttons */
+    padding: 15px 20px; /* Increased padding for buttons */
+    font-size: 18px; /* Larger font size for buttons */
+    border-radius: 5px;
+    background-color: red;
+      color: white;;
+  }
+  
+  .buttons button:last-child {
+    margin-right: 0;
+  }
+  
+  
