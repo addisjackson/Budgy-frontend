@@ -72,7 +72,7 @@ function Expenses() {
   };
 
   const handleEditExpense = expense_id => {
-    navigate(`/expenses/${expense_id}`);
+    navigate(`/expenses/${expense_id}/edit`);
   };
 
   const handleDeleteExpense = expense_id => {
