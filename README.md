@@ -69,7 +69,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Budgy Budgets][Budgy Budgets]('/images/Budgets.png')]
+[Budgy Budgets]('/images/Budgets.png')
 
 The aim of this project is to build an app the helps a user fully track his spending. It automatically creates budgets each month based on 6 categories of spending ie Apparel, Entertainment, Childcare and Education, Food, Housing and Travel. Each of these categories have been assigned a maximum spending amount based on a percentage of the monthly income so based on the time and category of each expense a budget can be created to track spending and show the savings each  month in each budget. 
 
