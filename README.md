@@ -69,9 +69,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Budgy Budgets][Budgy Budgets]('/images/Budgets.png')]
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `addisjackson`, `Budgy_frontend`, `twitter_handle`, `AddisJackson`, `Gmail`, `addisjackson@pursuit.org`, `Budgy - My Expense Tracker`, `project_description`
+The aim of this project is to build an app the helps a user fully track his spending. It automatically creates budgets each month based on 6 categories of spending ie Apparel, Entertainment, Childcare and Education, Food, Housing and Travel. Each of these categories have been assigned a maximum spending amount based on a percentage of the monthly income so based on the time and category of each expense a budget can be created to track spending and show the savings each  month in each budget. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

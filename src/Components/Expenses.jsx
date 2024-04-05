@@ -25,16 +25,22 @@ function Expenses() {
         }
         return response.json();
       })
-      .then(data => {
-        setExpenses(data);
-        setFilteredExpenses(data);
+      .then(expensesArray => {
+        if (Array.isArray(expensesArray)) {
+          setExpenses(expensesArray);
+          setFilteredExpenses(expensesArray);
+        } else {
+          console.error('Fetched data is not an array:', expensesArray);
+        }
       })
       .catch(error => console.error('Error fetching expenses:', error.message));
   };
 
+  const categories = [...new Set(expenses.map(expense => expense.category))];
+
   const filterExpenses = () => {
-    let filtered = expenses;
-    if (selectedCategory) {
+    let filtered = [...expenses];
+    if (selectedCategory && selectedCategory !== '') {
       filtered = filtered.filter(expense => expense.category === selectedCategory);
     }
     if (searchTerm) {
@@ -46,10 +52,15 @@ function Expenses() {
 
   const handleFilterByCategory = category => {
     setSelectedCategory(category);
-    setFilteredExpenses(filterExpenses());
+    if (category === '') {
+      setFilteredExpenses(expenses);
+    } else {
+      const filtered = expenses.filter(expense => expense.category === category);
+      setFilteredExpenses(filtered);
+    }
   };
 
-  const handleSortExpenses = (sortBy) => {
+  const handleSortExpenses = sortBy => {
     const newSortOrder = sortBy === sortCriteria ? (sortOrder === 'asc' ? 'desc' : 'asc') : 'asc';
     setSortOrder(newSortOrder);
     setSortCriteria(sortBy);
@@ -64,8 +75,6 @@ function Expenses() {
     });
     setFilteredExpenses(sortedExpenses);
   };
-  
-  
 
   const handleSearch = () => {
     setFilteredExpenses(filterExpenses());
@@ -97,12 +106,9 @@ function Expenses() {
       <div className='sort'>
         <select value={selectedCategory} onChange={e => handleFilterByCategory(e.target.value)}>
           <option value="">All Categories</option>
-          <option value="Apparel">Apparel</option>
-          <option value="Entertainment">Entertainment</option>
-          <option value="Childcare & Education">Childcare & Education</option>
-          <option value="Food">Food</option>
-          <option value="Housing">Housing</option>
-          <option value="Travel">Travel</option>
+          {categories.map((category, index) => (
+            <option key={index} value={category}>{category}</option>
+          ))}
         </select>
         <button onClick={() => handleSortExpenses('amount')}>Sort by Amount</button>
         <button onClick={() => handleSortExpenses('description')}>Sort by Description</button>
@@ -112,9 +118,9 @@ function Expenses() {
       <div className="expense-list">
         {filteredExpenses.map(expense => (
           <div key={expense.expense_id} className="expense">
-          <div className="description">
-            <Link to={`/expenses/${expense.expense_id}`}><p>{expense.description}</p></Link>
-            </div>  
+            <div className="description">
+              <Link to={`/expenses/${expense.expense_id}`}><p>{expense.description}</p></Link>
+            </div>
             <div className="details">
               <p>Amount: {expense.amount}</p>
               <p>Date: {expense.date}</p>
