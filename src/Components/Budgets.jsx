@@ -8,7 +8,7 @@ import './budgets.css';
 function Budgets({ expenses }) {
   const [budgetsData, setBudgetsData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [sortedByRemaining, setSortedByRemaining] = useState(false);
+  const [sortedByRemaining, setSortedByRemaining] = useState(null); // Track sorting order
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredBudgets, setFilteredBudgets] = useState({});
 
@@ -41,21 +41,22 @@ function Budgets({ expenses }) {
     );
   
     // Sort by remaining amount if sortedByRemaining is true
-    if (sortedByRemaining) {
-      filtered.sort((a, b) => a.amount_remaining - b.amount_remaining);
+    if (sortedByRemaining !== null) {
+      filtered.sort((a, b) => {
+        if (sortedByRemaining) {
+          return a.amount_remaining - b.amount_remaining; // Ascending order
+        } else {
+          return b.amount_remaining - a.amount_remaining; // Descending order
+        }
+      });
     }
   
     return filtered;
   };
-  
 
   const handleSortByRemaining = () => {
-    const sorted = [...budgetsData.budgets];
-    sorted.sort((a, b) => a.amount_remaining - b.amount_remaining);
-    setBudgetsData({ ...budgetsData, budgets: sorted });
-    setSortedByRemaining(true);
+    setSortedByRemaining(prevState => !prevState); // Toggle sorting order
   };
-  
 
   const handleDeleteExpense = (expenseId) => {
     // Send DELETE request to the server to delete the expense
@@ -86,30 +87,30 @@ function Budgets({ expenses }) {
     setSearchTerm(event.target.value);
   };
 
-    return (
-      <div className="budgets">
-        <div className="search-category-sort">
-          <div className="search-expense">
-            <input
-              type="text"
-              placeholder="Search expenses..."
-              value={searchTerm}
-              onChange={handleSearch}
-            />
-          </div>
-          <select className="category-dropdown" value={selectedCategory} onChange={e => setSelectedCategory(e.target.value)}>
-            <option value="">All Categories</option>
-            <option value="Apparel">Apparel</option>
-            <option value="Entertainment">Entertainment</option>
-            <option value="Childcare & Education">Childcare & Education</option>
-            <option value="Food">Food</option>
-            <option value="Housing">Housing</option>
-            <option value="Travel">Travel</option>
-          </select>
-          <button className="sort-button" onClick={handleSortByRemaining}>Sort by Remaining Amount</button>
+  return (
+    <div className="budgets">
+      <div className="search-category-sort">
+        <div className="search-expense">
+          <input
+            type="text"
+            placeholder="Search expenses..."
+            value={searchTerm}
+            onChange={handleSearch}
+          />
         </div>
-        {filteredBudgets && filterBudgets().map(budget => (
-          <div key={budget.budget_id} className='budget-detail'>
+        <select className="category-dropdown" value={selectedCategory} onChange={e => setSelectedCategory(e.target.value)}>
+          <option value="">All Categories</option>
+          <option value="Apparel">Apparel</option>
+          <option value="Entertainment">Entertainment</option>
+          <option value="Childcare & Education">Childcare & Education</option>
+          <option value="Food">Food</option>
+          <option value="Housing">Housing</option>
+          <option value="Travel">Travel</option>
+        </select>
+        <button className="sort-button" onClick={handleSortByRemaining}>Sort by Remaining Amount</button>
+      </div>
+      {filteredBudgets && filterBudgets().map(budget => (
+        <div key={budget.budget_id} className='budget-detail'>
           <div className='category'>
             <h3>Category: <Link to={`/budgets/${budget.budget_id}`}>{budget.category}</Link></h3>
           </div>
